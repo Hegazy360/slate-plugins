@@ -67,6 +67,7 @@ import {
   TablePlugin,
   TodoListPlugin,
   ToolbarAlign,
+  ToolbarBlockquote,
   ToolbarCodeBlock,
   ToolbarElement,
   ToolbarImage,
@@ -306,9 +307,10 @@ export const Plugins = () => {
             typeList={options.ol.type}
             icon={<FormatListNumbered />}
           />
-          <ToolbarElement
+          <ToolbarBlockquote
             type={options.blockquote.type}
             icon={<FormatQuote />}
+            options={options}
           />
           <ToolbarCodeBlock
             type={options.code_block.type}
