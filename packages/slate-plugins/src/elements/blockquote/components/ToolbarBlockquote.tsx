@@ -8,6 +8,7 @@ import { DEFAULTS_BLOCKQUOTE } from '../defaults';
 import { toggleBlockquote } from '../transforms/toggleBlockquote';
 import { BlockquotePluginOptions } from '../types';
 
+//Custom toolbar button to connect to toggleBLockquote
 export const ToolbarBlockquote = ({
   options,
   ...props
