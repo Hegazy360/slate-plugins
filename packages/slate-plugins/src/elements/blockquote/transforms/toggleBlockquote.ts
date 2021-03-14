@@ -9,7 +9,7 @@ import { unwrapBlockquote } from './unwrapBlockquote';
 //Overwrite default blockquote behavior by using wrapNodes() instead of setNodes()
 export const toggleBlockquote = (
   editor: Editor,
-  options: BlockquotePluginOptions,
+  options: BlockquotePluginOptions
 ) => {
   if (!editor.selection) return;
 

@@ -14,11 +14,10 @@ export interface GetOnHotkeyToggleNodeTypeOptions extends HotkeyOptions {
 /**
  * Get `onKeyDown` handler to toggle node type if hotkey is pressed.
  */
-export const getOnHotkeyToggleNodeType = ({
-  type,
-  defaultType,
-  hotkey,
-}: GetOnHotkeyToggleNodeTypeOptions) => {
+export const getOnHotkeyToggleNodeType = (
+  { type, defaultType, hotkey }: GetOnHotkeyToggleNodeTypeOptions,
+  customToggleMethod: any
+) => {
   if (!hotkey) return;
 
   const hotkeys = castArray(hotkey);
@@ -27,6 +26,13 @@ export const getOnHotkeyToggleNodeType = ({
     for (const key of hotkeys) {
       if (isHotkey(key, e)) {
         e.preventDefault();
+        if (customToggleMethod) {
+          customToggleMethod(editor, {
+            activeType: type,
+            inactiveType: defaultType,
+          });
+          return;
+        }
         toggleNodeType(editor, { activeType: type, inactiveType: defaultType });
         return;
       }

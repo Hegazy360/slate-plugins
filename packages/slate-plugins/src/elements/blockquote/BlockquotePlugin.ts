@@ -4,6 +4,7 @@ import { DEFAULTS_BLOCKQUOTE } from './defaults';
 import { deserializeBlockquote } from './deserializeBlockquote';
 import { renderElementBlockquote } from './renderElementBlockquote';
 import { BlockquotePluginOptions } from './types';
+import { toggleBlockquote } from './transforms/toggleBlockquote';
 
 /**
  * Enables support for block quotes, useful for
@@ -18,5 +19,6 @@ export const BlockquotePlugin = (
     key: 'blockquote',
     defaultOptions: DEFAULTS_BLOCKQUOTE,
     options,
+    customToggleMethod: toggleBlockquote
   }),
 });
