@@ -1,5 +1,6 @@
 import { Editor } from 'slate';
 import { options } from '../../../../stories/config/initialValues';
+import { toggleBlockquote } from '../elements/blockquote';
 import { insertCodeBlock } from '../elements/code-block';
 import { toggleList } from '../elements/list/transforms/toggleList';
 import { unwrapList } from '../elements/list/transforms/unwrapList';
@@ -62,6 +63,9 @@ export const autoformatRulesFixtures: AutoformatRule[] = [
     type: options.blockquote.type,
     markup: ['>'],
     preFormat,
+    format: (editor) => {
+      toggleBlockquote(editor, options);
+    },
   },
   {
     type: MARK_BOLD,

@@ -1,6 +1,7 @@
 import {
   AutoformatRule,
   insertCodeBlock,
+  toggleBlockquote,
   toggleList,
   unwrapList,
 } from '@udecode/slate-plugins';
@@ -64,6 +65,9 @@ export const autoformatRules: AutoformatRule[] = [
     type: options.blockquote.type,
     markup: ['>'],
     preFormat,
+    format: (editor) => {
+      toggleBlockquote(editor, options);
+    },
   },
   {
     type: options.bold.type,
